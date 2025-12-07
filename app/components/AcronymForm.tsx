@@ -35,8 +35,8 @@ export default function AcronymForm({
       onSubmit={handleSubmit}
       className="grid gap-3 rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900"
     >
-      <div className="grid grid-cols-12 gap-3 items-center">
-        <div className="col-span-12 md:col-span-4">
+      <div className="grid grid-cols-9 gap-3 items-center">
+        <div className="col-span-9">
           <label
             htmlFor="acronym"
             className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
@@ -48,26 +48,26 @@ export default function AcronymForm({
             value={acronym}
             onChange={(e) => setAcronym(e.target.value)}
             disabled={isLoading}
-            placeholder="e.g., API"
-            className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 bg-white text-zinc-900 placeholder-zinc-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-50"
+            placeholder="e.g., RE"
+            className="w-full mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 bg-white text-zinc-900 placeholder-zinc-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-50"
           />
         </div>
 
-        <div className="col-span-12 md:col-span-8">
+        <div className="col-span-9">
           <label
             htmlFor="definition"
             className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
           >
             Definition
           </label>
-          <textarea
+          <input
             id="definition"
             value={definition}
             onChange={(e) => setDefinition(e.target.value)}
             disabled={isLoading}
-            placeholder="Describe what this acronym means..."
-            rows={2}
-            className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 bg-white text-zinc-900 placeholder-zinc-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-50"
+            placeholder="Describe what does the acronym stand for"
+            type="text"
+            className="w-full mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 bg-white text-zinc-900 placeholder-zinc-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-50"
           />
         </div>
       </div>
@@ -78,15 +78,13 @@ export default function AcronymForm({
         </div>
       )}
 
-      <div>
-        <button
-          type="submit"
-          className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-60"
-          disabled={isLoading}
-        >
-          {isLoading ? "Adding..." : "Add Acronym"}
-        </button>
-      </div>
+      <button
+        type="submit"
+        className="rounded-md bg-[var(--ka-dark-green)] mt-2 px-4 py-2 font-bold text-white hover:bg-[var(--ka-dark-green-hover)] disabled:opacity-60"
+        disabled={isLoading}
+      >
+        {isLoading ? "Adding..." : "Add Acronym"}
+      </button>
     </form>
   );
 }

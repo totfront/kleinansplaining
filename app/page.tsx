@@ -54,8 +54,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
-      <main className="mx-auto max-w-3xl px-6 py-12">
+    <main className="animated-bg mx-auto px-6 py-12">
+      <section className="max-w-3xl">
         <div className="mb-12">
           <h1 className="mb-2 text-4xl font-bold text-zinc-900 dark:text-zinc-50">
             Corporate Acronyms
@@ -92,7 +92,7 @@ export default function Home() {
             <AcronymList acronyms={acronyms} onRefresh={fetchAcronyms} />
           )}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }

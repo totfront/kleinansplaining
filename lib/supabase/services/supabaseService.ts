@@ -50,7 +50,7 @@ export async function editAcronym(id: number, definition: string) {
 	if (error) {
 		console.error("Error editing acronym:", error);
 		// If the error is an RLS denial, the user will see this generic error.
-		throw new Error("Failed to update acronym. Check your permissions.");
+		throw new Error("Failed to update acronym");
 	}
 	return data;
 }

@@ -42,7 +42,7 @@ export default function AcronymList({
     return (
       <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-8 text-center dark:border-zinc-700 dark:bg-zinc-900">
         <p className="text-zinc-600 dark:text-zinc-400">
-          No acronyms yet. Add one to get started!
+          No acronyms yet. Be the first to add one!
         </p>
       </div>
     );
