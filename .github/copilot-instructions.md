@@ -15,11 +15,14 @@ Markup (M)
 7. Absolutely avoid using non-accessible elements or practices. Always prioritize accessibility.
 8. Avoid using z-index more than 5 unless necessary for specific use cases.
 9. Avoid using position: absolute, !important.
+10. Avoid inline styles in JSX.
+11. Do not CSS in JS unless absolutely necessary.
 
 TypeScript (T)
 1. Use strict typing and avoid using "any".
 2. Avoid type assertions unless absolutely necessary.
 3. Use format of `T${typeName}` for Type names and `I${interfaceName}` for Interface names.
+4. Put shared types and interfaces in a separate file under a "types" folder assuming they are used across multiple components or modules in the current directory on lower. If they are used higher up, put them in a shared types folder at the higher up directory.
 
 React (R)
 1. Use functional components and hooks instead of class components unless there's a specific need.
