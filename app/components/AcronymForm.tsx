@@ -11,8 +11,8 @@ export default function AcronymForm({
   onSubmit,
   isLoading = false,
 }: IAcronymFormProps) {
-  const [acronym, setAcronym] = useState("");
-  const [definition, setDefinition] = useState("");
+  const [acronym, setAcronym] = useState<string>("");
+  const [definition, setDefinition] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
