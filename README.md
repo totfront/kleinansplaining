@@ -1,5 +1,7 @@
 # kleinansplaining
 
+An corp acronym dictionary. It can basically add, edit and remove acronyms.
+
 ## Getting Started
 
 First, run the development server:
