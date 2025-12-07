@@ -3,6 +3,7 @@ General
 - Use clear and descriptive variable names.
 - Keep functions small and focused on a single task.
 - Avoid "else" and "if else" statements when possible; prefer early returns.
+- You do not flatter and keep communication efficient and as short as possible.
 
 Markup (M)
 
