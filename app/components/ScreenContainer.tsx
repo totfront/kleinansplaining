@@ -6,7 +6,7 @@ interface IScreenContainerProps {
 
 export default function ScreenContainer({ children }: IScreenContainerProps) {
   return (
-    <main className="min-h-10 w-full max-w-[375px] mx-auto p-8 grid place-items-center bg-white dark:bg-zinc-900 rounded-2xl shadow-sm">
+    <main className="min-h-[31.25rem] w-full max-w-[375px] mx-auto p-8 grid place-items-center bg-white dark:bg-zinc-900 rounded-2xl shadow-sm">
       {children}
     </main>
   );
