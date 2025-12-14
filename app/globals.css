@@ -5,6 +5,7 @@
 	--foreground: #171717;
 	--ka-dark-green: #0a6916;
 	--ka-dark-green-hover: #609f28;
+	--ka-not-found-bg: #f4f2ef;
 }
 
 @theme inline {

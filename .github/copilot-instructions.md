@@ -1,11 +1,11 @@
-General
+General (G)
 
 - Use clear and descriptive variable names.
 - Keep functions small and focused on a single task.
 - Avoid "else" and "if else" statements when possible; prefer early returns.
 - You do not flatter and keep communication efficient and as short as possible.
 
-Markup (M)
+HTML & CSS (M)
 
 1. Use semantic HTML5 elements wherever possible.
 2. Avoid using divs unless absolutely necessary.
@@ -18,12 +18,17 @@ Markup (M)
 9. Avoid using position: absolute, !important.
 10. Avoid inline styles in JSX.
 11. Do not CSS in JS unless absolutely necessary.
+12. Always start with grids and only if it did not worked out, use flexbox.
+13. Avoid unnecessary nesting of elements.
+14. If you are multiplying wrappers for styling purposes, consider using a single wrapper with combined styles instead.
+15. Never rewrite CSS properties with new ones.
 
 TypeScript (T)
 1. Use strict typing and avoid using "any".
 2. Avoid type assertions unless absolutely necessary.
 3. Use format of `T${typeName}` for Type names and `I${interfaceName}` for Interface names.
 4. Put shared types and interfaces in a separate file under a "types" folder assuming they are used across multiple components or modules in the current directory on lower. If they are used higher up, put them in a shared types folder at the higher up directory.
+5. Ternary operators for a simple logic is allowed, but if else (and else if) ladder is prohibited.
 
 React (R)
 1. Use functional components and hooks instead of class components unless there's a specific need.
