@@ -6,6 +6,12 @@
 	--ka-dark-green: #0a6916;
 	--ka-dark-green-hover: #609f28;
 	--ka-not-found-bg: #f4f2ef;
+
+	--space-xs: 0.25rem; /* 4px */
+	--space-s: 0.5rem; /* 8px */
+	--space-m: 1rem; /* 16px */
+	--space-l: 1.5rem; /* 24px */
+	--space-xl: 2rem; /* 32px */
 }
 
 @theme inline {
