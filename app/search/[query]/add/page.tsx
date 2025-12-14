@@ -49,7 +49,7 @@ export default function AddPage() {
       <BackButton href="/" />
 
       <div className="mb-8 text-center">
-        <EmojiIcon emoji="➕" variant="success" />
+        <EmojiIcon emoji="➕" />
         <h2 className="text-2xl font-semibold text-[#333333] dark:text-[#ededed] mb-2">
           Add Acronym
         </h2>
@@ -68,6 +68,7 @@ export default function AddPage() {
             onChange={(e) => setAcronym(e.target.value)}
             placeholder="Enter acronym"
             disabled={isSaving}
+            maxLength={10}
           />
         </div>
 

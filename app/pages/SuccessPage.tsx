@@ -7,8 +7,8 @@ import EmojiIcon from "../components/EmojiIcon";
 export default function SuccessPage() {
   return (
     <ScreenContainer>
-      <div className="text-center">
-        <EmojiIcon emoji="🎉" variant="success" />
+      <div className="min-h-[27.25rem] text-center flex flex-col items-center justify-center">
+        <EmojiIcon emoji="🎉" />
         <h2 className="text-2xl font-semibold text-[#333333] dark:text-[#ededed] mb-2">
           Acronym Updated Successfully!
         </h2>

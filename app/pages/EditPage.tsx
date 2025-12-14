@@ -7,6 +7,8 @@ import EmojiIcon from "../components/EmojiIcon";
 import BackButton from "../components/BackButton";
 import FormInput from "../components/FormInput";
 import FormLabel from "../components/FormLabel";
+import LoadingCenter from "../components/LoadingCenter";
+import { useAcronym } from "../context/AcronymContext";
 import type { TAcronym } from "@/lib/supabase/types/TAcronym";
 
 export default function EditPage() {
@@ -17,8 +19,17 @@ export default function EditPage() {
   const [definition, setDefinition] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const { current } = useAcronym();
 
   useEffect(() => {
+    // Prefer context value when available (navigating from Found -> Edit)
+    if (current && current.acronym?.toLowerCase() === query.toLowerCase()) {
+      setAcronym(current);
+      setDefinition(current.definition || "");
+      setIsLoading(false);
+      return;
+    }
+
     const fetchAcronym = async () => {
       try {
         setIsLoading(true);
@@ -43,7 +54,7 @@ export default function EditPage() {
     };
 
     fetchAcronym();
-  }, [query]);
+  }, [query, current]);
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,17 +76,13 @@ export default function EditPage() {
       router.push(`/search/${encodeURIComponent(query)}/success`);
     } catch (error) {
       console.error("Error updating acronym:", error);
-    } finally {
-      setIsSaving(false);
     }
   };
 
   if (isLoading) {
     return (
       <ScreenContainer>
-        <div className="text-center py-8">
-          <p className="text-[#666666] dark:text-[#999999]">Loading...</p>
-        </div>
+        <LoadingCenter />
       </ScreenContainer>
     );
   }
@@ -89,13 +96,10 @@ export default function EditPage() {
       <BackButton href={`/search/${encodeURIComponent(query)}`} label="Back" />
 
       <div className="mb-8 text-center">
-        <EmojiIcon emoji="✏️" variant="success" />
+        <EmojiIcon emoji="✏️" />
         <h2 className="text-2xl font-semibold text-[#333333] dark:text-[#ededed] mb-2">
           Edit Acronym
         </h2>
-        <p className="text-[#666666] dark:text-[#999999]">
-          Update the acronym information
-        </p>
       </div>
 
       <form onSubmit={handleSave}>
@@ -111,6 +115,7 @@ export default function EditPage() {
           <FormInput
             id="definition"
             type="text"
+            maxLength={150}
             value={definition}
             onChange={(e) => setDefinition(e.target.value)}
             placeholder="Enter the meaning"
@@ -120,10 +125,14 @@ export default function EditPage() {
 
         <button
           type="submit"
-          disabled={isSaving || !definition.trim()}
+          disabled={
+            isSaving ||
+            !definition.trim() ||
+            (acronym?.definition || "").trim() === definition.trim()
+          }
           className="w-full px-6 py-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 bg-[#406825] text-white hover:bg-[#355420] active:bg-[#2D471B] disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
         >
-          {isSaving ? "Saving..." : "Save changes"}
+          {isSaving ? "Saving..." : "Save"}
         </button>
       </form>
     </ScreenContainer>

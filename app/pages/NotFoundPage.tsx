@@ -15,7 +15,7 @@ export default function NotFoundPage() {
       <BackButton href="/" />
 
       <div className="mb-8 text-center">
-        <EmojiIcon emoji="ℹ️" variant="not-found" />
+        <EmojiIcon emoji="ℹ️" />
         <h2 className="text-2xl font-semibold text-[#333333] dark:text-[#ededed] mb-2">
           Acronym Not Found
         </h2>
@@ -29,7 +29,7 @@ export default function NotFoundPage() {
 
       <div className="bg-[#F9F9F9] dark:bg-zinc-800 rounded-xl p-6 mb-6 border-2 border-dashed border-[#E5E5E5] dark:border-zinc-700">
         <p className="text-[#666666] dark:text-[#999999] text-center mb-4">
-          Help us grow our database by adding this acronym
+          Help us grow our database
         </p>
         <Link
           href={`/search/${encodeURIComponent(query)}/add`}

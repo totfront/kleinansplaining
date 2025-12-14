@@ -2,6 +2,7 @@ interface IFormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  maxLength?: number;
 }
 
 export default function FormInput({
@@ -11,10 +12,12 @@ export default function FormInput({
   placeholder,
   disabled,
   type = "text",
+  maxLength,
 }: IFormInputProps) {
   return (
     <input
       id={id}
+      maxLength={maxLength}
       type={type}
       value={value}
       onChange={onChange}

@@ -1,18 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
-import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+import { useAcronym } from "../context/AcronymContext";
 import ScreenContainer from "../components/ScreenContainer";
 import EmojiIcon from "../components/EmojiIcon";
 import BackButton from "../components/BackButton";
 import type { TAcronym } from "@/lib/supabase/types/TAcronym";
+import LoadingCenter from "../components/LoadingCenter";
 
 export default function FoundPage() {
   const params = useParams();
-  const query = params.query as string;
+  const query: string = params.query as string;
   const [acronym, setAcronym] = useState<TAcronym | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const { setCurrent } = useAcronym();
 
   useEffect(() => {
     const fetchAcronym = async () => {
@@ -48,9 +51,7 @@ export default function FoundPage() {
   if (isLoading) {
     return (
       <ScreenContainer>
-        <div className="text-center py-8">
-          <p className="text-[#666666] dark:text-[#999999]">Loading...</p>
-        </div>
+        <LoadingCenter />
       </ScreenContainer>
     );
   }
@@ -64,7 +65,7 @@ export default function FoundPage() {
       <BackButton href="/" />
 
       <div className="mb-8 text-center">
-        <EmojiIcon emoji="✅" variant="success" />
+        <EmojiIcon emoji="✅" />
         <h2 className="text-2xl font-semibold text-[#333333] dark:text-[#ededed]">
           Acronym Found
         </h2>
@@ -88,12 +89,16 @@ export default function FoundPage() {
         </div>
       </div>
 
-      <Link
-        href={`/search/${encodeURIComponent(query)}/edit`}
+      <button
+        type="button"
+        onClick={() => {
+          setCurrent(acronym);
+          router.push(`/search/${encodeURIComponent(query)}/edit`);
+        }}
         className="w-full px-6 py-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 bg-[#406825] text-white hover:bg-[#355420] active:bg-[#2D471B] font-semibold"
       >
         Edit acronym
-      </Link>
+      </button>
     </ScreenContainer>
   );
 }

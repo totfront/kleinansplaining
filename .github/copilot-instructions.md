@@ -22,6 +22,7 @@ HTML & CSS (M)
 13. Avoid unnecessary nesting of elements.
 14. If you are multiplying wrappers for styling purposes, consider using a single wrapper with combined styles instead.
 15. Never rewrite CSS properties with new ones.
+16. Never rewrite tailwind classes with new ones. First analyze existing classes and modify them if possible.
 
 TypeScript (T)
 1. Use strict typing and avoid using "any".
