@@ -53,9 +53,6 @@ export default function AddPage() {
         <h2 className="text-2xl font-semibold text-[#333333] dark:text-[#ededed] mb-2">
           Add Acronym
         </h2>
-        <p className="text-[#666666] dark:text-[#999999]">
-          Help us grow our database
-        </p>
       </div>
 
       <form onSubmit={handleSubmit}>
