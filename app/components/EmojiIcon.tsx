@@ -3,11 +3,6 @@ interface IEmojiIconProps {
   variant?: "success" | "not-found";
 }
 
-export default function EmojiIcon({
-  emoji,
-  variant = "success",
-}: IEmojiIconProps) {
-  const textColor = variant === "success" ? "text-white" : "text-[#666666]";
-
-  return <span className={`text-3xl ${textColor}`}>{emoji}</span>;
+export default function EmojiIcon({ emoji }: IEmojiIconProps) {
+  return <span className={"text-3xl mb-l"}>{emoji}</span>;
 }

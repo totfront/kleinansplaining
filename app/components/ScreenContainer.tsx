@@ -6,8 +6,12 @@ interface IScreenContainerProps {
 
 export default function ScreenContainer({ children }: IScreenContainerProps) {
   return (
-    <main className="min-h-[31.25rem] w-full max-w-[375px] mx-auto p-8 grid place-items-center bg-white dark:bg-zinc-900 rounded-2xl shadow-sm">
-      {children}
-    </main>
+    <div className="min-h-screen bg-[#F5F5F5] dark:bg-[#0a0a0a] flex items-center justify-center p-4">
+      <div className="w-full max-w-[375px]">
+        <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm p-8">
+          {children}
+        </div>
+      </div>
+    </div>
   );
 }

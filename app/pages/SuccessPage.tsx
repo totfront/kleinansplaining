@@ -8,7 +8,7 @@ export default function SuccessPage() {
   return (
     <ScreenContainer>
       <div className="text-center">
-        <EmojiIcon emoji="✓" variant="success" />
+        <EmojiIcon emoji="🎉" variant="success" />
         <h2 className="text-2xl font-semibold text-[#333333] dark:text-[#ededed] mb-2">
           Acronym Updated Successfully!
         </h2>
